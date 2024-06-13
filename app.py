@@ -21,7 +21,7 @@ def SearchByName():
     return render_template("SearchByName.html")
 
 @app.route("/SearchByIngredient", methods=["Get","POST"])
-def SearchByName():
+def SearchByIngredient():
     if request.method == "POST":
         #TODO: Implement search by ingridient
         return "TODO"
