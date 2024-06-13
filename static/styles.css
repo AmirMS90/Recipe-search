@@ -1,7 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Concert One", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 100;
+    font-style: normal;
+}
+
+body {
+    color: var(--maincolor);
+    background: var(--bgcolor);
+}
+
 :root {
     --bgcolor: #f2cc8f;
     --navcolor: #e07a5f;
     --navtxtcolor: #f4f1de;
     --searchcolor: #3d405b;
-    --maincolor: #81B29A;
+    --maincolor: #81b29a;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navcolor);
+    color: var(--navtxtcolor);
+}
+
+a {
+    text-decoration: none;
+    color: var(--navtxtcolor);
+}
+
+h1 {
+    padding: 1rem;
+    font-size: 1.75rem;
+    font-weight: 900;
+}
+
+.pages {
+    padding: 1rem;
+}
+
+.pages a {
+    border: var(--navtxtcolor) 1px solid;
+    border-radius: 1rem;
+    padding: 0.25rem;
+}
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: var(--navcolor);
+    color: var(--navtxtcolor);
+    text-align: center;
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .pages a{
+        display: block;
+    }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Recipe Search</title>
+        <link rel="icon" href="../static/images/roast-chicken.png" />
+        <link rel="stylesheet" href="../static/styles.css" />
+    </head>
+    <body>
+        <head>
+            <nav>
+                <a href="/"><h1>Recipe Search</h1></a>
+                <div class="pages">
+                    <a href="/SearchByName">by name</a>
+                    <a href="/SearchByIngredient">by ingredient</a>
+                </div>
+            </nav>
+        </head>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+        <footer>
+            <a href="https://github.com/AmirMS90"
+                ><img
+                    src="../static/images/github-mark-white.png"
+                    alt="Github icon"
+                    title="github profile"
+                    width="25"
+                    height="25"
+            /></a>
+            <a href="https://x.com/amir_ms90"
+                ><img
+                    src="../static/images/x-social-media-white-icon.png"
+                    alt="X twitter icon"
+                    title="My X"
+                    width="25"
+                    height="25"
+            /></a>
+            <a href="mailto:Wk8pX@example.com"
+                ><img
+                    src="../static/images/gmail.png"
+                    alt="Gmail icon"
+                    title="Email me!"
+                    width="25"
+                    height="25"
+            /></a>
+        </footer>
+    </body>
+</html>
