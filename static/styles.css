@@ -9,11 +9,20 @@
     font-size: 1.15rem;
     font-weight: 100;
     font-style: normal;
+    text-align: center;
 }
 
 body {
     color: var(--maincolor);
     background: var(--bgcolor);
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
 }
 
 :root {
