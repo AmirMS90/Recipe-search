@@ -27,16 +27,23 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/SearchByName", methods=["Get","POST"])
+@app.route("/SearchByName", methods=["Get", "POST"])
 def SearchByName():
     if request.method == "POST":
-        #TODO: Implement search by name
-        return "TODO"
+        searched = request.form.get("name")
+        filteredResults = get_data_from_api(
+            f"http://www.themealdb.com/api/json/v1/1/filter.php?i={searched}"
+        )
+        if not filteredResults or not filteredResults["meals"]:
+            return render_template("apology.html", error=404)
+        # TODO: show the result
+        return filteredResults
     return render_template("SearchByName.html")
 
-@app.route("/SearchByIngredient", methods=["Get","POST"])
+
+@app.route("/SearchByIngredient", methods=["Get", "POST"])
 def SearchByIngredient():
     if request.method == "POST":
-        #TODO: Implement search by ingridient
+        # TODO: Implement search by ingridient
         return "TODO"
     return render_template("SearchByIngredient.html")

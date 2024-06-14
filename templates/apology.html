@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Error</title>
+        <style>
+            body{
+                background: #000000;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        {% if error == 404 %}
+        <img
+            src="../static/images/404-funny-1600x1200.png"
+            alt="404 page not found"
+            height="600"
+            width="800"
+        />
+        {% else %} {{error}}
+        <br />
+        {{message}} {% endif %}
+    </body>
+</html>
