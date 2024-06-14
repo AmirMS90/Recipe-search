@@ -1,2 +1,6 @@
 {% extends "layout.html" %} {% block main %}
+<form action="/SearchByName" method="post">
+    <input type="text" name="name" required autofocus placeholder="Enter a name"/>
+    <button><img src="../static/images/search.png" alt="search" height="20" width="20"/></button>
+</form>
 {% endblock %}

@@ -107,3 +107,33 @@ footer a img:not(:hover) {
         display: block;
     }
 }
+
+form {
+    display: flex;
+    position: relative;
+    left: calc(50% - 7.25rem);
+    border: 1px solid var(--searchcolor);
+    border-radius: 2rem;
+    width: fit-content;
+}
+
+input {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    color: var(--maincolor);
+    background: none;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    border-radius: 0 2rem 2rem 0;
+    padding: 0.5rem;
+    color: var(--maincolor);
+    background: var(--searchcolor);
+    border: none;
+    cursor: pointer;
+}
