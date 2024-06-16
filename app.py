@@ -77,6 +77,15 @@ def SearchByIngredient():
 
 @app.route("/meal/<id>")
 def meal(id):
+    """
+    Retrieves a specific meal from TheMealDB API based on the provided meal ID.
+
+    Parameters:
+        id (str): The ID of the meal to retrieve.
+
+    Returns:
+        flask.Response: The rendered "meal.html" template with the meal data passed as a context variable.
+    """
     resultmeal = get_data_from_api(
         f"http://www.themealdb.com/api/json/v1/1/lookup.php?i={id}"
     )["meals"][0]
