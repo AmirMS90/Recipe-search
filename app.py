@@ -94,3 +94,6 @@ def meal(id):
         f"http://www.themealdb.com/api/json/v1/1/lookup.php?i={id}"
     )["meals"][0]
     return render_template("meal.html", meal=resultmeal)
+
+if __name__ == "__main__":
+    app.run()
