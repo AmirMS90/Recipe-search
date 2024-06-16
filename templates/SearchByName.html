@@ -1,4 +1,7 @@
 {% extends "layout.html" %} {% block main %}
+<div class="searchHeadTxt">
+    In this page you can search for recipe with typing their name
+</div>
 <form action="/SearchByName" method="post">
     <input type="text" name="name" required autofocus placeholder="Enter a name"/>
     <button><img src="../static/images/search.png" alt="search" height="20" width="20"/></button>

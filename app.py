@@ -29,21 +29,55 @@ def index():
 
 @app.route("/SearchByName", methods=["Get", "POST"])
 def SearchByName():
+    """
+    This function is a route handler for the "/SearchByName" endpoint. It handles both GET and POST requests.
+
+    Parameters:
+    - None
+
+    Returns:
+    - If the request method is POST, it retrieves the "name" value from the request form and makes a GET request to the TheMealDB API with the name as a query parameter. It then checks if the response contains any meals and returns the filtered results if there are any. Otherwise, it renders the "apology.html" template with an error code of 404.
+    - If the request method is not POST, it renders the "SearchByName.html" template.
+    """
     if request.method == "POST":
         searched = request.form.get("name")
         filteredResults = get_data_from_api(
-            f"http://www.themealdb.com/api/json/v1/1/filter.php?i={searched}"
+            f"http://www.themealdb.com/api/json/v1/1/search.php?s={searched}"
         )
         if not filteredResults or not filteredResults["meals"]:
             return render_template("apology.html", error=404)
-        # TODO: show the result
-        return filteredResults
+        return render_template("results.html", results=filteredResults["meals"])
     return render_template("SearchByName.html")
 
 
 @app.route("/SearchByIngredient", methods=["Get", "POST"])
 def SearchByIngredient():
+    """
+    Searches for recipes by ingredient using the TheMealDB API.
+
+    This function is a route handler for the "/SearchByIngredient" endpoint. It handles both GET and POST requests.
+
+    Parameters:
+    - None
+
+    Returns:
+    - If the request method is POST, it retrieves the "ingredient" value from the request form and makes a GET request to the TheMealDB API with the ingredient as a query parameter. It then checks if the response contains any meals and returns the filtered results if there are any. Otherwise, it renders the "apology.html" template with an error code of 404.
+    - If the request method is not POST, it renders the "SearchByIngredient.html" template.
+    """
     if request.method == "POST":
-        # TODO: Implement search by ingridient
-        return "TODO"
+        searched = request.form.get("ingredient")
+        filteredResults = get_data_from_api(
+            f"http://www.themealdb.com/api/json/v1/1/filter.php?i={searched}"
+        )
+        if not filteredResults or not filteredResults["meals"]:
+            return render_template("apology.html", error=404)
+        return render_template("results.html", results=filteredResults["meals"])
     return render_template("SearchByIngredient.html")
+
+
+@app.route("/meal/<id>")
+def meal(id):
+    resultmeal = get_data_from_api(
+        f"http://www.themealdb.com/api/json/v1/1/lookup.php?i={id}"
+    )["meals"][0]
+    return render_template("meal.html", meal=resultmeal)

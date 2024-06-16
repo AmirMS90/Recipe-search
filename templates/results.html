@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block main %}
+<style>
+    .meal img {
+        max-height: 300px;
+        width: auto;
+        border-radius: 10px;
+    }
+    .meal {
+        background-color: var(--navcolor);
+        height: fit-content;
+        width: fit-content;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 50px;
+    }
+    main {
+        display: flex;
+        flex-direction: row;
+        align-content: space-evenly;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    main {
+        height: fit-content;
+    }
+    h2{
+        max-inline-size: 32ch;
+    }
+</style>
+{% for result in results %}
+<a href="/meal/{{ result['idMeal'] }}" class="meal">
+    <img src="{{ result['strMealThumb'] }}" alt="{{ result['strMeal'] }}" />
+    <h2>{{ result['strMeal'] }}</h2>
+</a>
+{% endfor %} {% endblock %}

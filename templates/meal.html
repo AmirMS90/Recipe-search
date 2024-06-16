@@ -1,0 +1,13 @@
+{% extends "layout.html" %} {% block main %}
+<img src="{{ meal['strMealThumb'] }}" alt="{{ meal['strMeal'] }}" />
+<h2>{{ meal['strMeal'] }}</h2>
+<div class="ingredients">
+    <p>ingredients:</p>
+    <ul>
+        {% for key in meal.keys() %} {% if "strIngredient" in key %}
+        {% if meal[key] %}
+        <li>{{meal["strMeasure"+key[13::]] + " of " + meal[key] }}</li>
+        {% endif %} {% endif %} {% endfor %}
+    </ul>
+</div>
+{% endblock %}

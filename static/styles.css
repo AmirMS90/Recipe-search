@@ -111,10 +111,14 @@ footer a img:not(:hover) {
 form {
     display: flex;
     position: relative;
-    left: calc(50% - 7.25rem);
+    left: calc(50% - 16rem);
     border: 1px solid var(--searchcolor);
     border-radius: 2rem;
     width: fit-content;
+}
+
+.searchHeadTxt {
+    color: var(--searchcolor);
 }
 
 input {
@@ -123,6 +127,7 @@ input {
     color: var(--maincolor);
     background: none;
     border: none;
+    width: 30rem;
 }
 
 input:focus {

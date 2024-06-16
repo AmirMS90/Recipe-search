@@ -1,4 +1,7 @@
 {% extends "layout.html" %} {% block main %}
+<div class="searchHeadTxt">
+    In this page you can search for recipe with typing their ingredient
+</div>
 <form action="/SearchByIngredient" method="post">
     <input type="text" name="ingredient" required autofocus placeholder="Enter an ingredient"/>
     <button><img src="../static/images/search.png" alt="search" height="20" width="20"/></button>
