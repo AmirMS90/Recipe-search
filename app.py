@@ -41,6 +41,8 @@ def SearchByName():
     """
     if request.method == "POST":
         searched = request.form.get("name")
+        if not searched.strip():
+            return render_template("apology.html", error=400, message="Please enter a name")
         filteredResults = get_data_from_api(
             f"http://www.themealdb.com/api/json/v1/1/search.php?s={searched}"
         )
@@ -66,6 +68,8 @@ def SearchByIngredient():
     """
     if request.method == "POST":
         searched = request.form.get("ingredient")
+        if not searched.strip():
+            return render_template("apology.html", error=400, message="Please enter an ingredient")
         filteredResults = get_data_from_api(
             f"http://www.themealdb.com/api/json/v1/1/filter.php?i={searched}"
         )
