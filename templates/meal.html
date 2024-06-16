@@ -1,13 +1,47 @@
 {% extends "layout.html" %} {% block main %}
+<style>
+    main {
+        display: block;
+        align-items: start;
+    }
+    main * {
+        text-align: left;
+    }
+    main img {
+        margin-right: 10px;
+        margin-left: 10px;
+        float: left;
+        max-height: 500px;
+        width: auto;
+        border-radius: 10px;
+    }
+    main div{
+        margin: 15px;
+    }
+    li {
+        list-style-type: circle;
+        list-style-position: inside;
+    }
+</style>
 <img src="{{ meal['strMealThumb'] }}" alt="{{ meal['strMeal'] }}" />
-<h2>{{ meal['strMeal'] }}</h2>
+<div class="name">
+    <h2>{{ meal['strMeal'] }}</h2>
+</div>
+<div class="category">
+    <h2>Category:</h2>
+    <p>{{ meal['strCategory'] }}</p>
+</div>
 <div class="ingredients">
-    <p>ingredients:</p>
+    <h2>Ingredients:</h2>
     <ul>
-        {% for key in meal.keys() %} {% if "strIngredient" in key %}
-        {% if meal[key] %}
+        {% for key in meal.keys() %} {% if "strIngredient" in key %} {% if
+        meal[key] %}
         <li>{{meal["strMeasure"+key[13::]] + " of " + meal[key] }}</li>
         {% endif %} {% endif %} {% endfor %}
     </ul>
+</div>
+<div class="instructions">
+    <h2>Instructions:</h2>
+    <p>{{ meal['strInstructions'] }}</p>
 </div>
 {% endblock %}
